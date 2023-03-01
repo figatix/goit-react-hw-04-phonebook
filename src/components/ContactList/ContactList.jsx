@@ -1,30 +1,46 @@
 
 import PropTypes from "prop-types";
-import React, { Component } from "react";
+import React from "react";
 import { ContactItem } from "../ContactItem/ContactItem";
 import { StyledContactList } from "./ContactList.styled";
 
-class ContactList extends Component {
-
-  render() {
-    const { filteredContacts, onDeleteBtnClick } = this.props
-
-    return (
-
-      <StyledContactList>
-        {filteredContacts.map(({ name, id, number }) => {
-          return <ContactItem
-            personName={name}
-            personNumber={number}
-            key={id}
-            id={id}
-            filteredContacts={filteredContacts}
-            onDeleteBtnClick={onDeleteBtnClick} />
-        })}
-      </StyledContactList>
-    )
-  }
+const ContactList = ({ filteredContacts, onDeleteBtnClick }) => {
+  return (
+    <StyledContactList>
+      {filteredContacts.map(({ name, id, number }) => {
+        return <ContactItem
+          personName={name}
+          personNumber={number}
+          key={id}
+          id={id}
+          filteredContacts={filteredContacts}
+          onDeleteBtnClick={onDeleteBtnClick} />
+      })}
+    </StyledContactList>
+  )
 }
+
+// class ContactList extends Component {
+
+//   render() {
+//     const { filteredContacts, onDeleteBtnClick } = this.props
+
+//     return (
+
+//       <StyledContactList>
+//         {filteredContacts.map(({ name, id, number }) => {
+//           return <ContactItem
+//             personName={name}
+//             personNumber={number}
+//             key={id}
+//             id={id}
+//             filteredContacts={filteredContacts}
+//             onDeleteBtnClick={onDeleteBtnClick} />
+//         })}
+//       </StyledContactList>
+//     )
+//   }
+// }
 
 export { ContactList };
 
