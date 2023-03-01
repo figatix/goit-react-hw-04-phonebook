@@ -20,31 +20,9 @@ const ContactList = ({ filteredContacts, onDeleteBtnClick }) => {
   )
 }
 
-// class ContactList extends Component {
-
-//   render() {
-//     const { filteredContacts, onDeleteBtnClick } = this.props
-
-//     return (
-
-//       <StyledContactList>
-//         {filteredContacts.map(({ name, id, number }) => {
-//           return <ContactItem
-//             personName={name}
-//             personNumber={number}
-//             key={id}
-//             id={id}
-//             filteredContacts={filteredContacts}
-//             onDeleteBtnClick={onDeleteBtnClick} />
-//         })}
-//       </StyledContactList>
-//     )
-//   }
-// }
-
 export { ContactList };
 
 ContactList.propTypes = {
-  onDeleteBtnClick: PropTypes.func,
+  onDeleteBtnClick: PropTypes.func.isRequired,
   filteredContacts: PropTypes.arrayOf(PropTypes.shape()).isRequired,
 }

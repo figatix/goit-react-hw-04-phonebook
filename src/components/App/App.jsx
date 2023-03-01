@@ -13,7 +13,7 @@ const App = () => {
   const [contacts, setContacts] = useState(JSON.parse(localStorage.getItem(STORAGE_KEY)) ?? [])
 
   useEffect(() => {
-    localStorage.setItem('contacts', JSON.stringify(contacts))
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(contacts))
   }, [contacts])
 
   const addNewContact = (newContact) => {
@@ -39,12 +39,13 @@ const App = () => {
   }
 
   const onDeleteBtnClick = (id) => {
-    setContacts((prevState) => [prevState.filter(person => person.id !== id)])
+    setContacts((prevState) => prevState.filter(person => person.id !== id))
   }
 
   const handlerFilterContacts = (e) => {
     const normalizeName = filter.toLowerCase().trim()
-    return contacts.filter(person => person.name.toLowerCase().includes(normalizeName))
+    const isContacts = (contacts !== []);
+    return isContacts && contacts.filter(person => person.name?.toLowerCase().includes(normalizeName))
   }
 
   const filteredContacts = handlerFilterContacts();

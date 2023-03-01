@@ -17,28 +17,9 @@ const Filter = ({ filter, onChangeFilter }) => {
   )
 }
 
-// class Filter extends Component {
-
-//   render() {
-//     const { filter, onChangeFilter } = this.props
-
-//     return (
-//       <StyledFilterLabel>
-//         <StyledFilterInputTitle>Find contacts by name</StyledFilterInputTitle>
-//         <StyledFilterInput
-//           name="filter"
-//           value={filter}
-//           onChange={onChangeFilter}
-//           type="text"
-//         />
-//       </StyledFilterLabel>
-//     )
-//   }
-// }
-
 export { Filter };
 
 Filter.propTypes = {
-  onChangeFilter: PropTypes.func,
+  onChangeFilter: PropTypes.func.isRequired,
   filter: PropTypes.string.isRequired
 }
